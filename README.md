@@ -558,7 +558,7 @@ portswitch
 description Point-to-Point
 port link-type trunk
 port trunk allow-pass vlan 3030
-undo port truk allow-pass vlan 1
+undo port trunk allow-pass vlan 1
 quit
 
 interface g0/0/1
