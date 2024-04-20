@@ -442,4 +442,133 @@ y
 
 ```
 
-CONFIGURAÇÃO DO CE
+EXEMPLO DE CONFIGURAÇÃO DO CE-L3 
+
+```
+system-view
+
+sysname CE
+
+interface g0/0/0
+description WAN-MPLS
+ip address 172.30.10.2 30
+commit
+quit
+
+interface g0/0/1
+description LAN
+ip address 192.168.1.1 24
+quit
+commit
+
+route-policy PERMIT-ALL permit node 999
+quit
+commit
+
+bgp 65000
+peer 172.30.10.1 as-number 65055
+peer 172.30.10.1 description GATEWAY
+peer 172.30.10.1 route-policy PERMIT-ALL import
+peer 172.30.10.1 route-policy PERMIT-ALL export
+
+ipv4-family unicast
+network 192.168.1.0 24
+quit
+quit
+commit
+
+```
+EXEMPLO DE CONFIGURAÇÃO DE CE-L2VC (ROUTER)
+===========================================
+
+CE1
+===
+
+
+```
+system-view
+
+sysname CE1
+
+interface g0/0/0.3030
+vlan-type dot1q 3030
+description Point-to-Point
+ip address 192.168.30.1 30
+
+interface g0/0/1.100
+vlan-type dot1q 100
+description REDE 100
+ip address 192.168.100.1 24
+
+interface g0/0/1.200
+vlan-type dot1q 200
+description REDE 200
+ip address 192.168.200.1 24
+commit
+quit
+
+ip route-static 192.168.110.0 24 192.168.30.2 description ROUTE-TO-NET-110
+ip route-static 192.168.210.0 24 192.168.30.2 description ROUTE-TO-NET-210
+
+commit
+run save
+y
+```
+
+CE 2
+
+```
+system-view
+
+sysname CE2
+
+interface g0/0/0.3030
+vlan-type dot1q 3030
+description Pont-to-Point
+ip address 192.168.30.2 30
+
+interface g0/0/1.110
+vlan-type dot1q 110
+description REDE 110
+ip address 192.168.110.1 24
+
+interface g0/0/1.210
+vlan-type dot1q 210
+description REDE 210
+ip address 192.168.210.1 24
+commit
+quit
+
+ip route-static 192.168.100.0 24 192.168.30.1 description ROUTE-TO-NET 100
+ip route-static 192.168.200.0 24 192.168.30.1 description ROUTE-TO-NET 200
+
+commit
+run save
+y
+
+```
+EXEMPLO DE CONFIGURAÇÃO DE CE-L2VC (SWITCH-L2)
+==============================================
+CE1
+===
+```
+vlan 3030
+
+interface g0/0/0
+portswitch
+description Point-to-Point
+port link-type trunk
+port trunk allow-pass vlan 3030
+undo port truk allow-pass vlan 1
+quit
+
+interface g0/0/1
+portswitch
+description Point-to-Point_in-Access
+port link-type access
+port default-vlan 3030
+quit
+save
+y
+
+```
