@@ -1,0 +1,124 @@
+EXEMPLO DE CONFIGURAÇÃO PARA O PE-1
+
+system-view
+
+sysname PE2
+
+interface loopback 0
+ip address 10.210.0.2 32
+commit
+quit
+
+mpls
+mpls ldp
+quit
+mpls te
+mpls ldp lsr-id 10.210.0.2
+commit
+mpls ldp remote-peer PE1
+remote-ip 10.210.0.1
+commit
+quit
+mpls ldp remote-peer PE3
+remote-ip 10.210.0.3
+commit
+quit
+
+
+
+ospf 1 router-id 10.210.0.2
+opaque-capability enable
+area 0.0.0.0
+network 10.0.0.0 0.255.255.255
+mpls te
+quit
+quit
+commit
+
+interface 25g0/5/20
+ip address  10.200.0.2 30
+descripion CONNECTION-INTERFACE PE_1
+ospf enable 1 area 0.0.0.0
+ospf network-type p2p
+ospf cost 10
+mtu 9216
+mpls
+mpls ldp
+mpls te
+mpls mtu 9200
+commit
+quit
+
+interface 25g0/5/22
+ip address  10.200.0.9 30
+description CONNECTION-ITERFACE_PE3
+ospf enable 1 area 0.0.0.0
+ospf network-type p2p
+ospf cost 10
+mtu 9216
+mpls
+mpls ldp
+mpls te
+mpls mtu 9200
+commit
+quit
+
+
+ip vpn-instance vpna
+ipv4-family
+router-distinguisher 222:1
+vpn-target 100:1 both
+commit
+quit
+quit
+
+route-policy PERMIT-ALL permit node 999
+quit
+commit
+
+bgp 65055
+router-id 10.210.0.2
+peer 10.210.0.1 as-number 65055
+peer 10.210.0.1 route-policy PERMIT-ALL import
+peer 10.210.0.1 route-policy PERMIT-ALL export
+peer 10.210.0.1 connect-interface loopback 0
+peer 10.210.0.1 description PE-1
+peer 10.210.0.3 as-number 65055
+peer 10.210.0.3 route-policy PERMIT-ALL import
+peer 10.210.0.3 route-policy PERMIT-ALL export
+peer 10.210.0.3 connect-interface loopback 0
+peer 10.210.0.3 description PE-3
+
+ipv4-family vpnv4
+peer 10.210.0.1 enable
+peer 10.210.0.3 enable
+peer 10.210.0.1 route-policy PERMIT-ALL import
+peer 10.210.0.1 route-policy PERMIT-ALL export
+peer 10.210.0.3 route-policy PERMIT-ALL import
+peer 10.210.0.3 route-policy PERMIT-ALL export
+quit
+
+ipv4-family vpn-instance vpna
+import-route direct
+import-route static
+peer 172.30.20.2/30
+quit
+commit
+quit
+
+interface g0/0/0
+description CE-VPNA
+ip binding vpn-instance vpna
+ip address 172.30.20.1 30
+commit
+quit
+
+interface g0/0/1.3030
+vlan-type dot1q 3030
+description TRANSPORTE-MPLS
+mpls l2vc 10.210.0.1 3030 control-word
+commit
+quit
+
+run save
+y
