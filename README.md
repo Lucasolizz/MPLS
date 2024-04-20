@@ -617,7 +617,7 @@ display bgp vpnv4 all peer
 
 
 ```
-display ip vpnn-instance [nome da vpn] tunnel-info
+display ip vpn-instance [nome da vpn] tunnel-info
 ```
 
 - VERIFICAR TUNNEL L2VC
