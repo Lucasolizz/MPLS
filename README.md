@@ -1,6 +1,10 @@
 # EXEPLO DE CONFIGURAÇÃO DE MPLS L2VC E L3VPN
 ESSE CASE É DE UM EXEMPLO SIMILAR A UM IMPLEMENTADO EM ROTEADORES FISICOS.
 ---
+
+![diagrama](https://github.com/Lucasolizz/MPLS/assets/90730521/ad296f03-a2dd-4022-ba4c-2df9b0068382)
+
+---
 O diagrama de rede esta no arquivo https://github.com/Lucasolizz/mpls-l2vc-l3vpn/blob/main/diagrama.png
 ---
 - CONFIGURAÇÃO DO PE 1
