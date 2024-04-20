@@ -563,3 +563,59 @@ save
 y
 
 ```
+#COMANDOS DE VISUALIZAÇÃO
+
+
+PING COM VPN-INSTANCE
+=====================
+
+```
+ping -vpn-instance [nome da vpn] [ip de destino]
+```
+EXIBIR TABELA DE ROTEAMENTO DE UMA VPN-INSTANCE
+===============================================
+
+```
+display ip routing-table vpn-instance [nome da vpn]
+```
+
+VERIFICAR ADJASCÊNCIA OSPF
+===========================
+
+```
+display ospf peer brief
+```
+
+VERIFICAR ADJASCÊNCIA LDP
+=========================
+
+```
+display mpls ldp session
+```
+VERIFICAR SESSÃO BGP
+====================
+
+```
+display bgp peer
+```
+VERIFICAR SESSÃO BGP DAS VPNS
+=============================
+será mostrado tanto a sessão do vpnv4, entre os PEs, como com as vpn-instances
+
+```
+display bgp vpnv4 all peer
+```
+
+VERFICAR TUNNEL L3-VPN DE UMA VPN INSTANCE
+==========================================
+
+```
+display ip vpnn-instance [nome da vpn] tunnel-info
+```
+
+VERIFICAR TUNNEL L2VC
+=====================
+
+```
+display mpls l2vc [id do virtual circuit]
+```
