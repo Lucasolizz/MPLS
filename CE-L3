@@ -1,0 +1,36 @@
+EXEMPLO DE CONFIGURAÇÃO DO CE-L3 
+
+```
+system-view
+
+sysname CE
+
+interface g0/0/0
+description WAN-MPLS
+ip address 172.30.10.2 30
+commit
+quit
+
+interface g0/0/1
+description LAN
+ip address 192.168.1.1 24
+quit
+commit
+
+route-policy PERMIT-ALL permit node 999
+quit
+commit
+
+bgp 65000
+peer 172.30.10.1 as-number 65055
+peer 172.30.10.1 description GATEWAY
+peer 172.30.10.1 route-policy PERMIT-ALL import
+peer 172.30.10.1 route-policy PERMIT-ALL export
+
+ipv4-family unicast
+network 192.168.1.0 24
+quit
+quit
+commit
+
+``
