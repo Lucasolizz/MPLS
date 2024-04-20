@@ -6,6 +6,9 @@ ESSE CASE É DE UM EXEMPLO SIMILAR A UM IMPLEMENTADO EM ROTEADORES FISICOS.
 ![diagrama](https://github.com/Lucasolizz/MPLS/assets/90730521/ad296f03-a2dd-4022-ba4c-2df9b0068382)
 
 ---
+![Screenshot from 2024-04-20 15-54-51](https://github.com/Lucasolizz/MPLS/assets/90730521/7c2d2442-9d6f-4362-bc77-7c845b9becbb)
+
+---
 O diagrama de rede esta no arquivo https://github.com/Lucasolizz/mpls-l2vc-l3vpn/blob/main/diagrama.png
 ---
 - CONFIGURAÇÃO DO PE 1
