@@ -1,11 +1,9 @@
 # EXEPLO DE CONFIGURAÇÃO DE MPLS L2VC E L3VPN
-
-NESSE CASE DE UMA REDE SIMILAR A UMA IMPLEMENTADA
-OS ROTEADORES USADOS NO EXEMPLO SÃO INSPIRADOS NO NE8000 M4 DA HUAWEI
+ESSE CASE É DE UM EXEMPLO SIMILAR A UM IMPLEMENTADO EM ROTEADORES FISICOS.
+---
 O diagrama de rede esta no arquivo https://github.com/Lucasolizz/mpls-l2vc-l3vpn/blob/main/diagrama.png
-
-CONFIGURAÇÃO DO PE 1
-=====================
+---
+- CONFIGURAÇÃO DO PE 1
 
 ```
 sytem-view
@@ -156,8 +154,8 @@ y
 
 ```
 
-CONFIGURAÇÃO DO PE 2
-====================
+- CONFIGURAÇÃO DO PE 2
+
 
 ```
 system-view
@@ -286,8 +284,7 @@ run save
 y
 
 ```
-CONFIGURAÇÃO DO PE 3
-====================
+- CONFIGURAÇÃO DO PE 3
 
 ```
 system-view
@@ -432,8 +429,8 @@ run save
 y
 
 ```
-
-EXEMPLO DE CONFIGURAÇÃO DO CE-L3 
+---
+> EXEMPLO DE CONFIGURAÇÃO DO CE-L3 
 
 ```
 system-view
@@ -469,11 +466,12 @@ quit
 commit
 
 ```
-EXEMPLO DE CONFIGURAÇÃO DE CE-L2VC (ROUTER)
-===========================================
+---
 
-CE1
-===
+> EXEMPLO DE CONFIGURAÇÃO DE CE-L2VC (ROUTER)
+
+- CE 1
+
 
 
 ```
@@ -506,7 +504,7 @@ run save
 y
 ```
 
-CE 2
+- CE 2
 
 ```
 system-view
@@ -538,10 +536,12 @@ run save
 y
 
 ```
-EXEMPLO DE CONFIGURAÇÃO DE CE-L2VC (SWITCH-L2)
-==============================================
-CE1
-===
+---
+> EXEMPLO DE CONFIGURAÇÃO DE CE-L2VC (SWITCH-L2)
+
+
+-CE1
+
 ```
 vlan 3030
 
@@ -563,59 +563,59 @@ save
 y
 
 ```
-#COMANDOS DE VISUALIZAÇÃO
+COMANDOS DE VISUALIZAÇÃO
+========================
 
-
-PING COM VPN-INSTANCE
-=====================
+- PING COM VPN-INSTANCE
 
 ```
 ping -vpn-instance [nome da vpn] [ip de destino]
 ```
-EXIBIR TABELA DE ROTEAMENTO DE UMA VPN-INSTANCE
-===============================================
+- EXIBIR TABELA DE ROTEAMENTO DE UMA VPN-INSTANCE
+
 
 ```
 display ip routing-table vpn-instance [nome da vpn]
 ```
 
-VERIFICAR ADJASCÊNCIA OSPF
-===========================
+- VERIFICAR ADJASCÊNCIA OSPF
+
 
 ```
 display ospf peer brief
 ```
 
-VERIFICAR ADJASCÊNCIA LDP
-=========================
+- VERIFICAR ADJASCÊNCIA LDP
+
 
 ```
 display mpls ldp session
 ```
-VERIFICAR SESSÃO BGP
-====================
+- VERIFICAR SESSÃO BGP
+
 
 ```
 display bgp peer
 ```
-VERIFICAR SESSÃO BGP DAS VPNS
-=============================
+- VERIFICAR SESSÃO BGP DAS VPNS
+
 será mostrado tanto a sessão do vpnv4, entre os PEs, como com as vpn-instances
 
 ```
 display bgp vpnv4 all peer
 ```
 
-VERFICAR TUNNEL L3-VPN DE UMA VPN INSTANCE
-==========================================
+- VERFICAR TUNNEL L3-VPN DE UMA VPN INSTANCE
+
 
 ```
 display ip vpnn-instance [nome da vpn] tunnel-info
 ```
 
-VERIFICAR TUNNEL L2VC
-=====================
+- VERIFICAR TUNNEL L2VC
+
 
 ```
 display mpls l2vc [id do virtual circuit]
 ```
+---
