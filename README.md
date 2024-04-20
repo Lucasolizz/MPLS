@@ -1,17 +1,8 @@
-# EXEPLO DE CONFIGURAÇÃO DE MPLS
-EXEMPLO DE CONFIGURAÇÃO DE MPLS L2VC E L3VPN
+# EXEPLO DE CONFIGURAÇÃO DE MPLS L2VC E L3VPN
 
 NESSE CASE DE UMA REDE SIMILAR A UMA IMPLEMENTADA
-
-
 OS ROTEADORES USADOS NO EXEMPLO SÃO INSPIRADOS NO NE8000 M4 DA HUAWEI
-
-
-Para todos os exemplos o asn do PE será 65055 e o asn do CE será 65000
-
 O diagrama de rede esta no arquivo https://github.com/Lucasolizz/mpls-l2vc-l3vpn/blob/main/diagrama.png
-
-
 
 CONFIGURAÇÃO DO PE 1
 =====================
