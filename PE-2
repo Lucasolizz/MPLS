@@ -1,4 +1,4 @@
-EXEMPLO DE CONFIGURAÇÃO PARA O PE-1
+EXEMPLO DE CONFIGURAÇÃO PARA O PE-2
 
 system-view
 
@@ -49,7 +49,7 @@ mpls mtu 9200
 commit
 quit
 
-interface 25g0/5/22
+interface 25g0/5/24
 ip address  10.200.0.9 30
 description CONNECTION-ITERFACE_PE3
 ospf enable 1 area 0.0.0.0
@@ -100,8 +100,10 @@ quit
 
 ipv4-family vpn-instance vpna
 import-route direct
-import-route static
-peer 172.30.20.2/30
+peer 172.30.20.2 as-number 65000
+peer 172.30.20.2 description CE-VPNA
+peer 172.30.20.2 route-policy PERMIT-ALL import
+peer 172.30.20.2 route-policy PERMIT-ALL export
 quit
 commit
 quit
