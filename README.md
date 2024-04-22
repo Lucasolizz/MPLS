@@ -438,7 +438,7 @@ y
 
 ```
 ---
-> EXEMPLO DE CONFIGURAÇÃO DO CE-L3 
+- EXEMPLO DE CONFIGURAÇÃO DO CE-L3 
 
 ```
 system-view
@@ -476,9 +476,9 @@ commit
 ```
 ---
 
-> EXEMPLO DE CONFIGURAÇÃO DE CE-L2VC (ROUTER)
+- EXEMPLO DE CONFIGURAÇÃO DE CE-L2VC (ROUTER)
 
-- CE 1
+> CE 1
 
 
 
@@ -512,7 +512,7 @@ run save
 y
 ```
 
-- CE 2
+> CE 2
 
 ```
 system-view
@@ -545,12 +545,16 @@ y
 
 ```
 ---
-> EXEMPLO DE CONFIGURAÇÃO DE CE-L2VC (SWITCH)
+- EXEMPLO DE CONFIGURAÇÃO DE CE-L2VC (SWITCH)
 
 
-- CE Switch
+> CE Switch
 
 ```
+system-view
+
+sysname CE-Switch
+
 vlan 3030
 
 interface g0/0/0
@@ -574,38 +578,38 @@ y
 COMANDOS DE VISUALIZAÇÃO
 ========================
 
-- PING COM VPN-INSTANCE
+> PING COM VPN-INSTANCE
 
 ```
 ping -vpn-instance [nome da vpn] [ip de destino]
 ```
-- EXIBIR TABELA DE ROTEAMENTO DE UMA VPN-INSTANCE
+ > EXIBIR TABELA DE ROTEAMENTO DE UMA VPN-INSTANCE
 
 
 ```
 display ip routing-table vpn-instance [nome da vpn]
 ```
 
-- VERIFICAR ADJASCÊNCIA OSPF
+> VERIFICAR ADJASCÊNCIA OSPF
 
 
 ```
 display ospf peer brief
 ```
 
-- VERIFICAR ADJASCÊNCIA LDP
+> VERIFICAR ADJASCÊNCIA LDP
 
 
 ```
 display mpls ldp session
 ```
-- VERIFICAR SESSÃO BGP
+> VERIFICAR SESSÃO BGP
 
 
 ```
 display bgp peer
 ```
-- VERIFICAR SESSÃO BGP DAS VPNS
+> VERIFICAR SESSÃO BGP DAS VPNS
 
 será mostrado tanto a sessão do vpnv4, entre os PEs, como com as vpn-instances
 
@@ -613,14 +617,14 @@ será mostrado tanto a sessão do vpnv4, entre os PEs, como com as vpn-instances
 display bgp vpnv4 all peer
 ```
 
-- VERFICAR TUNNEL L3-VPN DE UMA VPN INSTANCE
+> VERFICAR TUNNEL L3-VPN DE UMA VPN INSTANCE
 
 
 ```
 display ip vpn-instance [nome da vpn] tunnel-info
 ```
 
-- VERIFICAR TUNNEL L2VC
+> VERIFICAR TUNNEL L2VC
 
 
 ```
