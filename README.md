@@ -580,6 +580,11 @@ y
 ```
 ip route-static vpn-instance [nome da vpn] [CIDR] [gateway]
 ```
+> ACESSAR UM CE ATRAVES DO PE
+
+```
+stelnet -i [interface] [IP do CE] [PORTA]
+```
 
 COMANDOS DE VISUALIZAÇÃO
 ========================
