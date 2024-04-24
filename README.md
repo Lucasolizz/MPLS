@@ -575,6 +575,12 @@ save
 y
 
 ```
+> CRIAR ROTA ESTÁTICA PARA UMA VPN-INSTANCE
+
+```
+ip route-static vpn-instance [nome da vpn] [CIDR] [gateway]
+``
+
 COMANDOS DE VISUALIZAÇÃO
 ========================
 
