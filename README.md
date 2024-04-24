@@ -579,7 +579,7 @@ y
 
 ```
 ip route-static vpn-instance [nome da vpn] [CIDR] [gateway]
-``
+```
 
 COMANDOS DE VISUALIZAÇÃO
 ========================
@@ -590,8 +590,6 @@ COMANDOS DE VISUALIZAÇÃO
 ping -vpn-instance [nome da vpn] [ip de destino]
 ```
  > EXIBIR TABELA DE ROTEAMENTO DE UMA VPN-INSTANCE
-
-
 ```
 display ip routing-table vpn-instance [nome da vpn]
 ```
