@@ -475,7 +475,14 @@ commit
 
 ```
 ---
+> SE OS CEs DA REDE TIVEREM O MESMO ASN SERÁ NECESSÁRIO O COMANDO ABAIXO PARA QUE POSSAM RECEBER AS REDES QUE POSSUEM O MESMO ASN DE ORIGEM
+---
+Essa configuração deverá ser feita no ipv4-family da vpn-instance do PE
+```
+peer [IP do Peer] subistitute-as
 
+```
+---
 - EXEMPLO DE CONFIGURAÇÃO DE CE-L2VC (ROUTER)
 
 > CE 1
