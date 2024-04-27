@@ -123,6 +123,7 @@ ipv4-family vpn-instance vpna
 import-route direct
 import-route static
 peer 172.30.10.2 as-number 65000
+peer 172.30.10.2 subistitute-as
 peer 172.30.10.2 description CE-VPNA
 peer 172.30.10.2 route-policy PERMIT-ALL import
 peer 172.30.10.2 route-policy PERMIT-ALL export
@@ -132,6 +133,7 @@ commit
 ipv4-family vpn-instance vpnb
 import-route direct
 peer 172.30.10.6 as-number 65000
+peer 172.30.10.6 subistitute-as
 peer 172.30.10.6 description CE-VPNB 
 peer 172.30.10.6 route-policy PERMIT-ALL import
 peer 172.30.10.6 route-policy PERMIT-ALL export
@@ -267,6 +269,7 @@ quit
 ipv4-family vpn-instance vpna
 import-route direct
 peer 172.30.20.2 as-number 65000
+peer 172.30.20.2 subistitute-as
 peer 172.30.20.2 description CE-VPNA
 peer 172.30.20.2 route-policy PERMIT-ALL import
 peer 172.30.20.2 route-policy PERMIT-ALL export
@@ -403,7 +406,8 @@ quit
 ipv4-family vpn-instance vpna
 import-route direct
 import-route static
-peer 172.30.30.6 as-number 65055
+peer 172.30.30.6 as-number 65000
+peer 172.30.30.6 subistitute-as
 peer 172.30.30.6 description CE-VPNA
 peer 172.30.30.6 route-policy PERMIT-ALL import
 peer 172.30.30.6 route-policy PERMIT-ALL export
@@ -412,6 +416,7 @@ quit
 ipv4-family vpn-instance vpnb
 import-route direct
 peer 172.30.30.2 as-number 65000
+peer 172.30.30.2 subistitute-as
 peer 172.30.30.2 description CE-VPNB 
 peer 172.30.30.2 route-policy PERMIT-ALL import
 peer 172.30.30.2 route-policy PERMIT-ALL export
